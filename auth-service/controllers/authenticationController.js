@@ -30,8 +30,9 @@ const login = async (req, res) => {
 
 const verifyToken = async (req, res) => {
   try {
-    const decoded = jwt.verify(token, jwtSecret)
-    return decoded
+    const { token } = req.body
+    const decodedToken = jwt.verify(token, jwtSecret)
+    res.json({ decodedToken })
   } catch (err) {
     res.status(400).json({ message: 'Malformed token' })
   }
