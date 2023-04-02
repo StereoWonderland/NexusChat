@@ -19,12 +19,12 @@ jobs:
 
     steps:
     - run: |
-          touch .env
+          touch auth-service/.env
           echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
           echo API_KEY=${{ secrets.API_KEY }} >> .env
           echo PORT = 5001
           echo JWT_SECRET = 'hi'
-          cat .env
+          cat auth-service/.env
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
