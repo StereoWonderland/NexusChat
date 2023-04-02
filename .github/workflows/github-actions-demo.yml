@@ -25,7 +25,7 @@ jobs:
           echo PORT = 5001
           echo JWT_SECRET = 'hi'
           cat .env
-      working-directory: auth-service
+      working-directory: ../auth-service
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
