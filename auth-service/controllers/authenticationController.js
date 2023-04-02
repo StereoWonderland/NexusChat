@@ -36,3 +36,8 @@ const verifyToken = async (req, res) => {
     res.status(400).json({ message: 'Malformed token' })
   }
 }
+
+module.exports = {
+  login,
+  verifyToken,
+}
