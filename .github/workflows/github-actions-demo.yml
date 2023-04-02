@@ -22,7 +22,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      working-directory: auth-service
+        cache-dependency-path: auth-service/package-lock.json
     - run: npm ci
       working-directory: auth-service
     - run: npm run build --if-present
