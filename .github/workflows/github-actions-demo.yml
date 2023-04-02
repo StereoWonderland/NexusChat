@@ -18,15 +18,14 @@ jobs:
 
 
     steps:
-    - name: 'Create env file'
-        run: |
+    - run: |
           touch .env
           echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
           echo API_KEY=${{ secrets.API_KEY }} >> .env
           echo PORT = 5001
           echo JWT_SECRET = 'hi'
           cat .env
-        working-directory: auth-service
+      working-directory: auth-service
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
