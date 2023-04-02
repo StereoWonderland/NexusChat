@@ -1,38 +1,43 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-- name: 'Create env file'
-  run: |
-    touch .env
-    echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
-    echo API_KEY=${{ secrets.API_KEY }} >> .env
-    echo PORT = 3001
-    echo JWT_SECRET = 'foo'
-    cat .env
-- name: Node.js CI
 
-  on: [push]
+name: Node.js CI
 
-  jobs:
-    build:
+on: [push]
 
-      runs-on: ubuntu-latest
+jobs:
+  build:
 
-      strategy:
-        matrix:
-          node-version: [14.x, 16.x, 18.x]
-          # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    runs-on: ubuntu-latest
 
-      steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: auth-service/package-lock.json
-      - run: npm ci
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        #
+
+    - name: 'Create env file'
+        run: |
+          touch .env
+          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
+          echo API_KEY=${{ secrets.API_KEY }} >> .env
+          echo PORT = 5001
+          echo JWT_SECRET = 'hi'
+          cat .env
         working-directory: auth-service
-      - run: npm run build --if-present
-        working-directory: auth-service
-      - run: npm test
-        working-directory: auth-service
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: auth-service/package-lock.json
+    - run: npm ci
+      working-directory: auth-service
+    - run: npm run build --if-present
+      working-directory: auth-service
+    - run: npm test
+      working-directory: auth-service
+
