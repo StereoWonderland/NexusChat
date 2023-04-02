@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        service: [auth-service, db-service]
+        service: [auth-service]
 
     steps:
       - name: Checkout code
