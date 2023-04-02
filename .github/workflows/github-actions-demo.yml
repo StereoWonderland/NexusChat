@@ -23,9 +23,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-      working_directory: auth-service
+      working-directory: auth-service
     - run: npm run build --if-present
-      working_directory: auth-service
+      working-directory: auth-service
     - run: npm test
-      working_directory: auth-service
+      working-directory: auth-service
 
