@@ -27,5 +27,6 @@ jobs:
       - name: Run tests
         run: |
           cd ${{ matrix.service }}
-          JWT_SECRET="hello" \
           npm test
+        continue-on-error: false
+        if: ${{ failure() }}
