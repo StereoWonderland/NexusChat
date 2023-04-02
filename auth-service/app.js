@@ -1,12 +1,11 @@
 const express = require('express')
 const app = express()
+const authenticationRoutes = require('./routes/authenticationRoutes')
 
 
-app.get('/', (request, response) => {
-  response.send('<h1>Hello world</h1>')
-})
+app.use('/', authenticationRoutes)
 
-const PORT = 3001
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
+
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`)
 })
