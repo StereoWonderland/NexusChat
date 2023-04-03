@@ -10,7 +10,7 @@ const login = async (req, res) => {
     const { username, password } = req.body
 
     // Call the database microservice to retrieve the user's password
-    const response = await axios.get(`${databaseUrl}/users/login?username=${username}`)
+    const response = await axios.get(`${databaseUrl}/users?username=${username}`)
     const user = response.data
 
     // Check if user exists and the password is correct
