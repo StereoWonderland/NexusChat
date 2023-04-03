@@ -1,0 +1,11 @@
+{
+  "name": "user-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest --verbose --setupFiles dotenv/config"
+  },
+  "author": "Mainthan Suriyakumaran",
+  "license": "ISC"
+}
