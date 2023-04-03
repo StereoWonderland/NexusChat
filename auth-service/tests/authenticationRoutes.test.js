@@ -1,5 +1,5 @@
 const supertest = require('supertest')
-const sinon = require('sinon');
+const sinon = require('sinon')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const axios = require('axios')
