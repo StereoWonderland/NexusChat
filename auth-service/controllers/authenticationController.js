@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const axios = require('axios')
 
-const databaseUrl = process.env.DATABASE_MICROSERVICE_URL
+const databaseUrl = process.env.DATABASE_SERVICE_URL
 const jwtSecret = process.env.JWT_SECRET
 
 const login = async (req, res) => {
