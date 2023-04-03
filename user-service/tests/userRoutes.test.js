@@ -8,7 +8,7 @@ describe('POST /users', () => {
 })
 
 describe('GET /users/:id', () => {
-  test.todo('should return a 200 along with the id a username if the user exists')
+  test.todo('should return a 200 along with the id and username if the user exists')
   test.todo('should return a 404 if the user does not exist')
   test.todo('should return a 400 if the id is invalid')
 })
